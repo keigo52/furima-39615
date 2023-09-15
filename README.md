@@ -1,6 +1,6 @@
 # テーブル設計
 
-## usersテーブル
+## Usersテーブル
 
 | Column              | Type    | Options                  |
 |---------------------|---------|--------------------------|
@@ -19,7 +19,7 @@ has_many :orders
 has_many :comments
 
  
-## itemsテーブル
+## Itemsテーブル
 
 | Column              | Type        | Options                        |
 |---------------------|-------------|--------------------------------|
@@ -39,7 +39,7 @@ has_one :order
 has_many :comments
  
 
-## ordersテーブル
+## Ordersテーブル
 
 | Column              | Type        | Options                        |
 |---------------------|-------------|--------------------------------|
@@ -52,7 +52,7 @@ belongs_to :item
 has_one :payment
 
 
-## paymentsテーブル
+## Addressesテーブル
 
 | Column              | Type        | Options                        |
 |---------------------|-------------|--------------------------------|
@@ -67,15 +67,3 @@ has_one :payment
 ### Association
 belongs_to :order
 
-
-## commentsテーブル
-
-| Column              | Type        | Options                        |
-|---------------------|-------------|--------------------------------|
-| user                | references  | null: false, foreign_key: true |
-| item                | references  | null: false, foreign_key: true |
-| text                | text        | null: false                    |
-
-### Association
-belongs_to :user
-belongs_to :item
