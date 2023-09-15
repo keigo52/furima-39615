@@ -4,19 +4,18 @@
 
 | Column              | Type    | Options                  |
 |---------------------|---------|--------------------------|
-| nickname            | string  | null: false,unique: true |
+| nickname            | string  | null: false              |
 | email               | string  | null: false,unique: true |
-| encrypted_password  | string  | null: false,unique: true |
+| encrypted_password  | string  | null: false              |
 | last_name           | string  | null: false              |
 | first_name          | string  | null: false              |
 | last_name_kana      | string  | null: false              |
 | first_name_kana     | string  | null: false              |
-| birthday            | string  | null: false              |
+| birthday            | date    | null: false              |
 
 ### Association
 has_many :items
 has_many :orders
-has_many :comments
 
  
 ## Itemsテーブル
@@ -36,7 +35,6 @@ has_many :comments
 ### Association
 belongs_to :user
 has_one :order
-has_many :comments
  
 
 ## Ordersテーブル
@@ -49,14 +47,14 @@ has_many :comments
 ### Association
 belongs_to :user
 belongs_to :item
-has_one :payment
+has_one :addresses
 
 
 ## Addressesテーブル
 
 | Column              | Type        | Options                        |
 |---------------------|-------------|--------------------------------|
-| orders              | references  | null: false, foreign_key: true |
+| order               | references  | null: false, foreign_key: true |
 | postcode            | string      | null: false                    |
 | prefecture_id       | integer     | null: false                    |
 | city                | string      | null: false                    |
